@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>VBA Range 的delete和Clear的坑 - kerrypnx</title>
+	<script>
+		(function (d, e) {
+			d[e] = d[e].replace("no-js", "js");
+		})(document.documentElement, "className");
+	</script>
+	<meta name="description"
+		content="">
+	<meta itemprop="name" content="VBA Range 的delete和Clear的坑">
+<meta itemprop="description" content="VBA Delete 函数使用需谨慎">
+
+<meta itemprop="wordCount" content="15">
+
+
+
+<meta itemprop="keywords" content="VBA," />
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+</head>
+
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title=":(" rel="home"><div class="logo__item logo__text">
+					<div class="logo__title">:(</div>
+					<div class="logo__tagline">记录一些平时做项目遇到的坑，和一些笔记</div>
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+				
+<main class="main" role="main">
+
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">VBA Range 的delete和Clear的坑</h1>
+			<div class="post__meta meta"><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/development/" rel="category">Development</a>
+	</span>
+</div></div>
+		</header><div class="content post__content clearfix">
+			<h2 id="背景">背景</h2>
+<p>今天遇到一个需求，将表下载下来贴到另一个模板里，因为模板里已经存在公式了，我就直接贴进去就可以了，为了避免模板里原有数据可能会干扰，我直接用 <code>ActiveSheet.Range(&quot;Rownum:rowNUm&quot;).EntireRow.Delete</code> 删除。 本以为很简单，可是测试的时候，直接反馈BUG，说公式变动了。我当时就纳闷了，我没动公式啊。</p>
+<h2 id="解决办法">解决办法</h2>
+<p>经过我一步一步调试，发现，原来是delete function导致的。 如下图，</p>
+<p><img src="/images/VBA/2020-06-01/vbaBug-1.png" alt=""></p>
+<p>A1存在公式为D3到D100的和，这个时候如果直接用delete，</p>
+<p><img src="/images/VBA/2020-06-01/vbaBug-2.png" alt=""></p>
+<p>这个时候，A1直接报错，这样会导致公式变化，而使用<code>Clear function</code>的时候，则，A1并不会变成乱码，公式依然存在，只是值为0
+<img src="/images/VBA/2020-06-01/vbaBug-3.png" alt=""></p>
+<h2 id="结论">结论</h2>
+<p><code>delete function</code>有时候会影响到其他的函数，使用时候应该谨慎小心</p>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/vba/" rel="tag">VBA</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/posts/life/basic-elements/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">MarkDown手册</p>
+		</a>
+	</div>
+</nav>
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2020
+		</div>
+	</div>
+</footer>
+	</div>
+	<script async defer src="/js/menu.js"></script>
+	</body>
+
+</html>

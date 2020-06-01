@@ -6,10 +6,19 @@
     <description>Recent content in Categories on kerrypnx</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 12 Aug 2018 23:03:12 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 16 May 2020 15:05:49 +0800</lastBuildDate>
     
 	<atom:link href="http://example.org/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Development</title>
+      <link>http://example.org/categories/development/</link>
+      <pubDate>Sat, 16 May 2020 15:05:49 +0800</pubDate>
+      
+      <guid>http://example.org/categories/development/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>品鉴评论</title>
@@ -17,15 +26,6 @@
       <pubDate>Sun, 12 Aug 2018 23:03:12 +0800</pubDate>
       
       <guid>http://example.org/categories/%E5%93%81%E9%89%B4%E8%AF%84%E8%AE%BA/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Development</title>
-      <link>http://example.org/categories/development/</link>
-      <pubDate>Mon, 16 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>http://example.org/categories/development/</guid>
       <description></description>
     </item>
     

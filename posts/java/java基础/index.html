@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>java基础 - kerrypnx</title>
+	<script>
+		(function (d, e) {
+			d[e] = d[e].replace("no-js", "js");
+		})(document.documentElement, "className");
+	</script>
+	<meta name="description"
+		content="">
+	<meta itemprop="name" content="java基础">
+<meta itemprop="description" content="java的基本内容">
+<meta itemprop="datePublished" content="2020-05-16T15:05:49&#43;08:00" />
+<meta itemprop="dateModified" content="2020-05-16T15:05:49&#43;08:00" />
+<meta itemprop="wordCount" content="84">
+
+
+
+<meta itemprop="keywords" content="java," />
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+</head>
+
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title=":(" rel="home"><div class="logo__item logo__text">
+					<div class="logo__title">:(</div>
+					<div class="logo__tagline">记录一些平时做项目遇到的坑，和一些笔记</div>
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+				
+<main class="main" role="main">
+
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">java基础</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2020-05-16T15:05:49&#43;08:00">2020-05-16</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/development/" rel="category">Development</a>
+	</span>
+</div></div>
+		</header><div class="content post__content clearfix">
+			<p>java的基本内容</p>
+<h2 id="java类的形式">java类的形式</h2>
+<pre><code>1. 包的就是一个文件夹, 一个包里的意思就是一个路径下的
+2. String和String buffer的区别: String是常量，一旦创建了就不能修改了，每次的变更其实是先回收，后创建，有时候JVM也会自动转换成STRINGBUFFER
+3. 在使用字符串频繁的变更的时候，尽量用stringbuffer
+4. Java中所有对对象的引用都是地址
+5. 原生类型是实打实的内存
+6. 引用数据类型是地址
+7. Java方法重载：多个同名函数
+8. Build pattern
+9. - 给一个类创建一个classBuilder，然后就不访问class了，通过访问classbuilder间接的访问class
+10. 类，一般有私有和公开两种，类的路径就是类的包的名字，包的名字也可以用类的路径代替。
+11. 访问修饰符：
+    a. default  （只有同包的才可以访问）不是一个包里的就不可以访问，同类，同包可以访问，同包的子类可以访问，不同包的子类不能访问
+    b. private 只有同类可以访问
+    c. protected  只有不同包的时候才不可以访问，如果不同包，继承了以后，也可以访问
+12. 类的覆盖，就是有的父类，自己又需要这个名字又需要做一些特殊的设定，比如一个美国人继承了人的类，但是他有个打招呼的方法，他需要说hello，中国人是说你好，就可以覆盖人的类
+13. 工厂方法：
+    a. 构造器： new class
+    b. 工厂方法：有名字的方法 pulic static className methodName () {}
+14. printf: 可以格式化输出内容 ‘32.5f’
+15. printin: 会换行，和print一样，直接输出内容
+16. 模板方法和接口有什么区别？？？？
+17. 模板方法就是类的方法覆盖的一种应用
+18. Object- Number - Integer
+19. 向上和向下转型
+    a. 向上转型可以直接转，向下转型需要在前面加括号（int）long，并且会有转型的风险，可能会报错，会失败
+20. 继承到的方法可能是父类的父类的方法
+21. 方法重载和方法重写的区别：
+    a. 方法重载：在一个类里写多个方法
+    b. 方法重写：在子类重写父类的方法
+22. 策略模式：用多态实现来代替switch的一种实现方法（很多模式都是用面向对象的特性来重塑一些语言的特性，达到实现低耦合的代码）
+</code></pre>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/java/" rel="tag">java</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/posts/uipath/oc%E7%9A%84%E9%93%BE%E6%8E%A5/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">OC</p>
+		</a>
+	</div>
+</nav>
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2020
+		</div>
+	</div>
+</footer>
+	</div>
+	<script async defer src="/js/menu.js"></script>
+	</body>
+
+</html>

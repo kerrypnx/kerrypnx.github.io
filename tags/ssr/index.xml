@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ssr on kerrypnx</title>
+    <link>http://example.org/tags/ssr/</link>
+    <description>Recent content in ssr on kerrypnx</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 16 May 2020 15:05:49 +0800</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/ssr/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>代理设置</title>
+      <link>http://example.org/posts/ssr/%E4%B8%80%E4%BA%9B%E4%BB%A3%E7%90%86%E7%9A%84%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Sat, 16 May 2020 15:05:49 +0800</pubDate>
+      
+      <guid>http://example.org/posts/ssr/%E4%B8%80%E4%BA%9B%E4%BB%A3%E7%90%86%E7%9A%84%E9%85%8D%E7%BD%AE/</guid>
+      <description>&lt;p&gt;一些代理配置&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
