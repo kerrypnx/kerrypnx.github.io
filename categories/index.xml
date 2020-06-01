@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on kerrypnx</title>
+    <link>http://example.org/categories/</link>
+    <description>Recent content in Categories on kerrypnx</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 12 Aug 2018 23:03:12 +0800</lastBuildDate>
+    
+	<atom:link href="http://example.org/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>品鉴评论</title>
+      <link>http://example.org/categories/%E5%93%81%E9%89%B4%E8%AF%84%E8%AE%BA/</link>
+      <pubDate>Sun, 12 Aug 2018 23:03:12 +0800</pubDate>
+      
+      <guid>http://example.org/categories/%E5%93%81%E9%89%B4%E8%AF%84%E8%AE%BA/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Development</title>
+      <link>http://example.org/categories/development/</link>
+      <pubDate>Mon, 16 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/categories/development/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
