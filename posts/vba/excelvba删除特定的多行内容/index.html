@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Excelvba删除特定的多行内容 - kerrypnx</title>
+	<script>
+		(function (d, e) {
+			d[e] = d[e].replace("no-js", "js");
+		})(document.documentElement, "className");
+	</script>
+	<meta name="description"
+		content="">
+	<meta itemprop="name" content="Excelvba删除特定的多行内容">
+<meta itemprop="description" content="VBA如果删除不连续的行？如何删除特定的行？">
+<meta itemprop="datePublished" content="2020-06-04T10:58:55&#43;08:00" />
+<meta itemprop="dateModified" content="2020-06-04T10:58:55&#43;08:00" />
+<meta itemprop="wordCount" content="100">
+
+
+
+<meta itemprop="keywords" content="VBA," />
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+</head>
+
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title=":(" rel="home"><div class="logo__item logo__text">
+					<div class="logo__title">:(</div>
+					<div class="logo__tagline">记录一些平时做项目遇到的坑，和一些笔记</div>
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+				
+<main class="main" role="main">
+
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Excelvba删除特定的多行内容</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2020-06-04T10:58:55&#43;08:00">2020-06-04</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/development/" rel="category">Development</a>
+	</span>
+</div></div>
+		</header><div class="content post__content clearfix">
+			<h2 id="背景">背景</h2>
+<p>最近有个需求，需要删除特定的行，但是这些行不连续。到网上查了半天，只有删除连续的行的，没办法，只能自己动手造轮子了</p>
+<h2 id="解决办法">解决办法</h2>
+<p>本来是想遍历行删除，但是发现，如果你删了第一行，那么第二行就会变成第一行了，剩下的行会依次递减，这样第二次的行号就是错的了，所以要换一个思路</p>
+<p><em>思路</em>：先创建一个 LIST，将所有的行号都加到 list 里，然后用<strong>APPlication union</strong>将每一行作为一个<strong>range</strong>，合并到一个大的<strong>range</strong>,然后删除</p>
+<h3 id="代码展示">代码展示：</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vb" data-lang="vb"><span style="color:#66d9ef">Sub</span> <span style="color:#a6e22e">deleteSpecitalRow</span>(neededDeleteContent, ColumnName <span style="color:#f92672">As</span> <span style="color:#66d9ef">String</span>, <span style="color:#66d9ef">Optional</span> <span style="color:#66d9ef">ByVal</span> optionColumnName <span style="color:#f92672">As</span> <span style="color:#66d9ef">String</span>)
+    <span style="color:#75715e">&#39;new a ArrayList
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">Dim</span> needDeleteRowIndexList <span style="color:#f92672">As</span> <span style="color:#66d9ef">Object</span>
+    <span style="color:#66d9ef">Set</span> needDeleteRowIndexList <span style="color:#f92672">=</span> CreateObject(<span style="color:#e6db74">&#34;System.Collections.ArrayList&#34;</span>)
+    <span style="color:#66d9ef">Dim</span> item
+    <span style="color:#66d9ef">Set</span> sh <span style="color:#f92672">=</span> ActiveSheet
+    i <span style="color:#f92672">=</span> 1
+    <span style="color:#66d9ef">For</span> <span style="color:#66d9ef">Each</span> rw <span style="color:#f92672">In</span> sh.Rows
+        <span style="color:#66d9ef">If</span> i <span style="color:#f92672">&gt;</span> 6 <span style="color:#66d9ef">Then</span>
+            <span style="color:#66d9ef">If</span> sh.Cells(rw.Row, 7).Value <span style="color:#f92672">=</span> neededDeleteContent <span style="color:#66d9ef">Then</span>
+                needDeleteRowIndexList.Add i
+            <span style="color:#66d9ef">End</span> <span style="color:#66d9ef">If</span>
+        <span style="color:#66d9ef">End</span> <span style="color:#66d9ef">If</span>
+        i <span style="color:#f92672">=</span> i <span style="color:#f92672">+</span> 1
+    <span style="color:#66d9ef">Next</span>
+    <span style="color:#66d9ef">Dim</span> neededRange <span style="color:#f92672">As</span> Range
+    <span style="color:#66d9ef">For</span> <span style="color:#66d9ef">Each</span> item <span style="color:#f92672">In</span> needDeleteRowIndexList
+        <span style="color:#66d9ef">If</span> neededRange <span style="color:#f92672">Is</span> <span style="color:#66d9ef">Nothing</span> <span style="color:#66d9ef">Then</span>
+            <span style="color:#66d9ef">Set</span> neededRange <span style="color:#f92672">=</span> sh.Rows(<span style="color:#66d9ef">CInt</span>(item)).EntireRow
+        <span style="color:#66d9ef">Else</span>
+            <span style="color:#66d9ef">Set</span> neededRange <span style="color:#f92672">=</span> Application.Union(neededRange, sh.Rows(<span style="color:#66d9ef">CInt</span>(item)).EntireRow)
+        <span style="color:#66d9ef">End</span> <span style="color:#66d9ef">If</span>
+
+    <span style="color:#66d9ef">Next</span> item
+    neededRange.Select
+    neededRange.Delete
+<span style="color:#66d9ef">End</span> <span style="color:#66d9ef">Sub</span>
+</code></pre></div>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/vba/" rel="tag">VBA</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/posts/java/java%E5%9F%BA%E7%A1%80/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">java基础</p>
+		</a>
+	</div>
+</nav>
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2020
+		</div>
+	</div>
+</footer>
+	</div>
+	<script async defer src="/js/menu.js"></script>
+	</body>
+
+</html>
