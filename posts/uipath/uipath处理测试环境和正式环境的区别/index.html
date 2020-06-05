@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Uipath处理测试环境和正式环境的区别 - kerrypnx</title>
+	<script>
+		(function (d, e) {
+			d[e] = d[e].replace("no-js", "js");
+		})(document.documentElement, "className");
+	</script>
+	<meta name="description"
+		content="">
+	<meta itemprop="name" content="Uipath处理测试环境和正式环境的区别">
+<meta itemprop="description" content="在UIpath的实施当中，通常我们开发的时候，是使用系统的测试环境，而很多时候测试环境和正式环境会有微小的差异，这会导致流程经常在UAT阶段出错">
+<meta itemprop="datePublished" content="2020-06-05T11:42:30&#43;08:00" />
+<meta itemprop="dateModified" content="2020-06-05T11:42:30&#43;08:00" />
+<meta itemprop="wordCount" content="22">
+
+
+
+<meta itemprop="keywords" content="uipath," />
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+</head>
+
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title=":(" rel="home"><div class="logo__item logo__text">
+					<div class="logo__title">:(</div>
+					<div class="logo__tagline">记录一些平时做项目遇到的坑，和一些笔记</div>
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+				
+<main class="main" role="main">
+
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Uipath处理测试环境和正式环境的区别</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2020-06-05T11:42:30&#43;08:00">2020-06-05</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/development/" rel="category">Development</a>
+	</span>
+</div></div>
+		</header><div class="content post__content clearfix">
+			<h2 id="背景">背景</h2>
+<p>理论上来说，一个系统的测试环境和正式环境应该一样，但是实际情况是基本所有系统，测试环境和正式环境都是有很小的差异，即使是很小，在 UAT 客户发现了，这也是不能容忍的问题。
+即使是大厂 SAP，测试环境和正式环境也有很多差异。举个例子：最近我就发现在 SAP，PSS 创建 OA 的时候，到最后的填写申请人邮箱的时候，正式环境和测试环境，他们填邮箱地址的输入框所在的页卡就不相同。</p>
+<p>测试环境：
+<img src="/images/Uipath/SAPPrTitleTestEnv.png" alt="测试环境的">
+正式环境:
+<img src="/images/Uipath/SAPPrTitleProvEnv.png" alt="正式环境"></p>
+<h2 id="解决办法">解决办法</h2>
+<p>我想了一下，这种情况现在是客观存在的，测试环境就是没办法变成和正式环境一样，但是正式环境作为测试的危险是有的。所以我目前采用的办法就是对自己代码项目结构的设计做些调整。</p>
+<h4 id="定义单元">定义单元</h4>
+<p>一个单元为：<strong>以一个保存节点为结束，从处理到保存的流程为一个单元</strong>
+将每一个从修改数据到保存数据这一个小的流程都做为一个单独的单元去处理。并且将保存操作单独独立出来。这样测试的时候，可以对每个小单元单独测试，在保存操作的时候，暂停。
+这样的话，就可以最大限度的降低在正式环境 DEBUG 的风险。</p>
+<h2 id="总结">总结</h2>
+<p>将项目拆分成小的单元，用每个单元在正式环境测试。这样可以用最小的风险在正式环境测试。</p>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/uipath/" rel="tag">uipath</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/posts/vba/excelvba%E5%88%A0%E9%99%A4%E7%89%B9%E5%AE%9A%E7%9A%84%E5%A4%9A%E8%A1%8C%E5%86%85%E5%AE%B9/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">Excelvba删除特定的多行内容</p>
+		</a>
+	</div>
+</nav>
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2020
+		</div>
+	</div>
+</footer>
+	</div>
+	<script async defer src="/js/menu.js"></script>
+	</body>
+
+</html>

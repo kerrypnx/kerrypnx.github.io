@@ -6,10 +6,19 @@
     <description>Recent content in Posts on kerrypnx</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 04 Jun 2020 10:58:55 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jun 2020 11:42:30 +0800</lastBuildDate>
     
 	<atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Uipath处理测试环境和正式环境的区别</title>
+      <link>http://example.org/posts/uipath/uipath%E5%A4%84%E7%90%86%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E5%92%8C%E6%AD%A3%E5%BC%8F%E7%8E%AF%E5%A2%83%E7%9A%84%E5%8C%BA%E5%88%AB/</link>
+      <pubDate>Fri, 05 Jun 2020 11:42:30 +0800</pubDate>
+      
+      <guid>http://example.org/posts/uipath/uipath%E5%A4%84%E7%90%86%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E5%92%8C%E6%AD%A3%E5%BC%8F%E7%8E%AF%E5%A2%83%E7%9A%84%E5%8C%BA%E5%88%AB/</guid>
+      <description>在UIpath的实施当中，通常我们开发的时候，是使用系统的测试环境，而很多时候测试环境和正式环境会有微小的差异，这会导致流程经常在UAT阶段出错</description>
+    </item>
     
     <item>
       <title>Excelvba删除特定的多行内容</title>
@@ -21,48 +30,12 @@
     </item>
     
     <item>
-      <title>java基础</title>
-      <link>http://example.org/posts/java/java%E5%9F%BA%E7%A1%80/</link>
-      <pubDate>Sat, 16 May 2020 15:05:49 +0800</pubDate>
-      
-      <guid>http://example.org/posts/java/java%E5%9F%BA%E7%A1%80/</guid>
-      <description>&lt;p&gt;java的基本内容&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>OC</title>
-      <link>http://example.org/posts/uipath/oc%E7%9A%84%E9%93%BE%E6%8E%A5/</link>
-      <pubDate>Sat, 16 May 2020 15:05:49 +0800</pubDate>
-      
-      <guid>http://example.org/posts/uipath/oc%E7%9A%84%E9%93%BE%E6%8E%A5/</guid>
-      <description>OC的链接</description>
-    </item>
-    
-    <item>
       <title>代理设置</title>
       <link>http://example.org/posts/ssr/%E4%B8%80%E4%BA%9B%E4%BB%A3%E7%90%86%E7%9A%84%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Sat, 16 May 2020 15:05:49 +0800</pubDate>
       
       <guid>http://example.org/posts/ssr/%E4%B8%80%E4%BA%9B%E4%BB%A3%E7%90%86%E7%9A%84%E9%85%8D%E7%BD%AE/</guid>
-      <description>&lt;p&gt;一些代理配置&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>音乐剧《Cat》repo</title>
-      <link>http://example.org/posts/life/%E9%9F%B3%E4%B9%90%E5%89%A7catrepo/</link>
-      <pubDate>Sun, 12 Aug 2018 23:03:12 +0800</pubDate>
-      
-      <guid>http://example.org/posts/life/%E9%9F%B3%E4%B9%90%E5%89%A7catrepo/</guid>
-      <description>2018年8月1日 19:30 上海大剧院 音乐剧《Cat》repo。还好没有错过，值得一看。</description>
-    </item>
-    
-    <item>
-      <title>MarkDown手册</title>
-      <link>http://example.org/posts/life/basic-elements/</link>
-      <pubDate>Mon, 16 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>http://example.org/posts/life/basic-elements/</guid>
-      <description>随时翻阅的mark down使用指南</description>
+      <description>代理配置，Linux配置</description>
     </item>
     
     <item>

@@ -6,10 +6,19 @@
     <description>Recent content in Tags on kerrypnx</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 04 Jun 2020 10:58:55 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jun 2020 11:42:30 +0800</lastBuildDate>
     
 	<atom:link href="http://example.org/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>uipath</title>
+      <link>http://example.org/tags/uipath/</link>
+      <pubDate>Fri, 05 Jun 2020 11:42:30 +0800</pubDate>
+      
+      <guid>http://example.org/tags/uipath/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>VBA</title>
@@ -21,56 +30,11 @@
     </item>
     
     <item>
-      <title>java</title>
-      <link>http://example.org/tags/java/</link>
-      <pubDate>Sat, 16 May 2020 15:05:49 +0800</pubDate>
-      
-      <guid>http://example.org/tags/java/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>OC</title>
-      <link>http://example.org/tags/oc/</link>
-      <pubDate>Sat, 16 May 2020 15:05:49 +0800</pubDate>
-      
-      <guid>http://example.org/tags/oc/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>ssr</title>
       <link>http://example.org/tags/ssr/</link>
       <pubDate>Sat, 16 May 2020 15:05:49 +0800</pubDate>
       
       <guid>http://example.org/tags/ssr/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>musical</title>
-      <link>http://example.org/tags/musical/</link>
-      <pubDate>Sun, 12 Aug 2018 23:03:12 +0800</pubDate>
-      
-      <guid>http://example.org/tags/musical/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>大剧院</title>
-      <link>http://example.org/tags/%E5%A4%A7%E5%89%A7%E9%99%A2/</link>
-      <pubDate>Sun, 12 Aug 2018 23:03:12 +0800</pubDate>
-      
-      <guid>http://example.org/tags/%E5%A4%A7%E5%89%A7%E9%99%A2/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>期待的Show</title>
-      <link>http://example.org/tags/%E6%9C%9F%E5%BE%85%E7%9A%84show/</link>
-      <pubDate>Sun, 12 Aug 2018 23:03:12 +0800</pubDate>
-      
-      <guid>http://example.org/tags/%E6%9C%9F%E5%BE%85%E7%9A%84show/</guid>
       <description></description>
     </item>
     

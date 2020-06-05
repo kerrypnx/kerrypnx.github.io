@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>uipath on kerrypnx</title>
+    <link>http://example.org/tags/uipath/</link>
+    <description>Recent content in uipath on kerrypnx</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 05 Jun 2020 11:42:30 +0800</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/uipath/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Uipath处理测试环境和正式环境的区别</title>
+      <link>http://example.org/posts/uipath/uipath%E5%A4%84%E7%90%86%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E5%92%8C%E6%AD%A3%E5%BC%8F%E7%8E%AF%E5%A2%83%E7%9A%84%E5%8C%BA%E5%88%AB/</link>
+      <pubDate>Fri, 05 Jun 2020 11:42:30 +0800</pubDate>
+      
+      <guid>http://example.org/posts/uipath/uipath%E5%A4%84%E7%90%86%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E5%92%8C%E6%AD%A3%E5%BC%8F%E7%8E%AF%E5%A2%83%E7%9A%84%E5%8C%BA%E5%88%AB/</guid>
+      <description>在UIpath的实施当中，通常我们开发的时候，是使用系统的测试环境，而很多时候测试环境和正式环境会有微小的差异，这会导致流程经常在UAT阶段出错</description>
+    </item>
+    
+  </channel>
+</rss>
