@@ -6,17 +6,26 @@
     <description>Recent content in Tags on kerrypnx</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 05 Jun 2020 11:42:30 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 15 Jun 2020 11:26:51 +0800</lastBuildDate>
     
 	<atom:link href="http://example.org/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>uipath</title>
+      <title>Uipath</title>
       <link>http://example.org/tags/uipath/</link>
-      <pubDate>Fri, 05 Jun 2020 11:42:30 +0800</pubDate>
+      <pubDate>Mon, 15 Jun 2020 11:26:51 +0800</pubDate>
       
       <guid>http://example.org/tags/uipath/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SAP</title>
+      <link>http://example.org/tags/sap/</link>
+      <pubDate>Wed, 10 Jun 2020 17:37:14 +0800</pubDate>
+      
+      <guid>http://example.org/tags/sap/</guid>
       <description></description>
     </item>
     
@@ -26,15 +35,6 @@
       <pubDate>Thu, 04 Jun 2020 10:58:55 +0800</pubDate>
       
       <guid>http://example.org/tags/vba/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ssr</title>
-      <link>http://example.org/tags/ssr/</link>
-      <pubDate>Sat, 16 May 2020 15:05:49 +0800</pubDate>
-      
-      <guid>http://example.org/tags/ssr/</guid>
       <description></description>
     </item>
     

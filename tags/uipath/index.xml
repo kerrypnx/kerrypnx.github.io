@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>uipath on kerrypnx</title>
+    <title>Uipath on kerrypnx</title>
     <link>http://example.org/tags/uipath/</link>
-    <description>Recent content in uipath on kerrypnx</description>
+    <description>Recent content in Uipath on kerrypnx</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 05 Jun 2020 11:42:30 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 15 Jun 2020 11:26:51 +0800</lastBuildDate>
     
 	<atom:link href="http://example.org/tags/uipath/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>RPA网页开发的坑</title>
+      <link>http://example.org/posts/uipath/rpa%E7%BD%91%E9%A1%B5%E5%BC%80%E5%8F%91%E7%9A%84%E5%9D%91/</link>
+      <pubDate>Mon, 15 Jun 2020 11:26:51 +0800</pubDate>
+      
+      <guid>http://example.org/posts/uipath/rpa%E7%BD%91%E9%A1%B5%E5%BC%80%E5%8F%91%E7%9A%84%E5%9D%91/</guid>
+      <description>网页不像APP稳定，涉及到网页开发的时候，我们需要注意很多地方</description>
+    </item>
     
     <item>
       <title>Uipath处理测试环境和正式环境的区别</title>

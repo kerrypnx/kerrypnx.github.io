@@ -2,35 +2,37 @@
 <html lang="en-us">
 
 <head><title>
-    VBA Range 的delete和Clear的坑 | 
+    SAPLayout的坑 | 
     
     kerrypnx</title>
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="VBA Delete 函数使用需谨慎
+<meta name="description" content="SAP Layout设置可能会导致RPA上线失败
     ">
 
 
-<meta property="og:title" content="VBA Range 的delete和Clear的坑" />
-<meta property="og:description" content="VBA Delete 函数使用需谨慎" />
+<meta property="og:title" content="SAPLayout的坑" />
+<meta property="og:description" content="SAP Layout设置可能会导致RPA上线失败" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://example.org/posts/vba/delete%E7%9A%84%E5%9D%91/" />
-
+<meta property="og:url" content="http://example.org/posts/uipath/saplayout%E7%9A%84%E5%9D%91/" />
+<meta property="article:published_time" content="2020-06-10T17:37:14+08:00" />
+<meta property="article:modified_time" content="2020-06-10T17:37:14+08:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="VBA Range 的delete和Clear的坑"/>
-<meta name="twitter:description" content="VBA Delete 函数使用需谨慎"/>
+<meta name="twitter:title" content="SAPLayout的坑"/>
+<meta name="twitter:description" content="SAP Layout设置可能会导致RPA上线失败"/>
 
-<meta itemprop="name" content="VBA Range 的delete和Clear的坑">
-<meta itemprop="description" content="VBA Delete 函数使用需谨慎">
+<meta itemprop="name" content="SAPLayout的坑">
+<meta itemprop="description" content="SAP Layout设置可能会导致RPA上线失败">
+<meta itemprop="datePublished" content="2020-06-10T17:37:14&#43;08:00" />
+<meta itemprop="dateModified" content="2020-06-10T17:37:14&#43;08:00" />
+<meta itemprop="wordCount" content="5">
 
-<meta itemprop="wordCount" content="27">
 
 
-
-<meta itemprop="keywords" content="VBA," />
-<link rel="canonical" href="http://example.org/posts/vba/delete%E7%9A%84%E5%9D%91/" />
+<meta itemprop="keywords" content="SAP," />
+<link rel="canonical" href="http://example.org/posts/uipath/saplayout%E7%9A%84%E5%9D%91/" />
 
 <link rel="icon" type="image/png" href="http://example.org/image/favicon.ico">
 
@@ -122,27 +124,27 @@
         <div id="page-body" class="column is-7">
 
 <div class="content blog">
-    <h1>VBA Range 的delete和Clear的坑</h1>
+    <h1>SAPLayout的坑</h1>
 
     <div id="infobar" class="level is-mobile">
         <div class="level-left">
             
             <div class="level-item">
-                <p class="subtitle info date">Jan 1, 0001
+                <p class="subtitle info date">Jun 10, 2020
                 </p>
             </div>
             
 
             <div class="level-item">
                 <p class="subtitle info">
-                    2 mins read
+                    1 min read
                 </p>
             </div>
         </div>
         <div class="level-right is-hidden-touch">
             <div class="tags">
                 
-                <a class="tag is-dark is-rounded" href="/tags/vba">VBA</a>
+                <a class="tag is-dark is-rounded" href="/tags/sap">SAP</a>
                 
             </div>
         </div>
@@ -150,24 +152,18 @@
 
     <div class="tags is-hidden-desktop">
         
-        <a class="tag is-dark is-rounded" href="/tags/vba">V b a</a>
+        <a class="tag is-dark is-rounded" href="/tags/sap">S a p</a>
         
     </div>
 
     <div class="blog-text">
         
 
-        <h2 id="背景">背景</h2>
-<p>今天遇到一个需求，将表下载下来贴到另一个模板里，因为模板里已经存在公式了，我就直接贴进去就可以了，为了避免模板里原有数据可能会干扰，我直接用 <code>ActiveSheet.Range(&quot;Rownum:rowNUm&quot;).EntireRow.Delete</code> 删除。 本以为很简单，可是测试的时候，直接反馈 BUG，说公式变动了。我当时就纳闷了，我没动公式啊。</p>
-<h2 id="解决办法">解决办法</h2>
-<p>经过我一步一步调试，发现，原来是 delete function 导致的。 如下图，</p>
-<p><img src="/images/VBA/2020-06-01/vbaBug-1.png" alt=""></p>
-<p>A1 存在公式为 D3 到 D100 的和，这个时候如果直接用 delete，</p>
-<p><img src="/images/VBA/2020-06-01/vbaBug-2.png" alt=""></p>
-<p>这个时候，A1 直接报错，这样会导致公式变化，而使用<code>Clear function</code>的时候，则，A1 并不会变成乱码，公式依然存在，只是值为 0
-<img src="/images/VBA/2020-06-01/vbaBug-3.png" alt=""></p>
-<h2 id="结论">结论</h2>
-<p><code>delete function</code>有时候会影响到其他的函数，使用时候应该谨慎小心</p>
+        <h1 id="背景">背景</h1>
+<p>昨天开开心心的项目做完了，自己测试也一路绿灯，本来很开心，结果晚上客服正式环境测试，直接就说运行不了。我过去一看，这界面完全不一样。原来SAP一个页面会因为选择的Layout不同，显示的界面也完全不一样。</p>
+<h1 id="解决办法">解决办法</h1>
+<p>当进入一个SAP得界面，发现有SAP Layout这个logo得时候，就需要非常注意了，因为这个界面可能是会变得。这个时候就需要和业务人员沟通，然后大家定一个标准得模板，然后RPA每次进入这种界面的时候，需要都去设置一下Layout。</p>
+<p><img src="/images/SAP/SAP_Layout.png" alt=""></p>
 
     </div>
 </div><div id="social-media-share" class="has-text-centered">
@@ -175,44 +171,44 @@
 	<br>
 	
 	<div class="share-buttons">
-	    <a  href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fexample.org%2fposts%2fvba%2fdelete%25E7%259A%2584%25E5%259D%2591%2f"
+	    <a  href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fexample.org%2fposts%2fuipath%2fsaplayout%25E7%259A%2584%25E5%259D%2591%2f"
 	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
 	        title="Share on Facebook. Opens in a new window.">
 	        <img src=/img/icons/45px/facebook.png>
 	    </a>
 
-	    <a  href="https://twitter.com/intent/tweet?text=VBA%20Range%20%e7%9a%84delete%e5%92%8cClear%e7%9a%84%e5%9d%91&url=http%3a%2f%2fexample.org%2fposts%2fvba%2fdelete%25E7%259A%2584%25E5%259D%2591%2f"
+	    <a  href="https://twitter.com/intent/tweet?text=SAPLayout%e7%9a%84%e5%9d%91&url=http%3a%2f%2fexample.org%2fposts%2fuipath%2fsaplayout%25E7%259A%2584%25E5%259D%2591%2f"
 	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
 	        title="Share on Twitter. Opens in a new window." >
 	        <img src=/img/icons/45px/twitter.png>
 	    </a>
 
-		<a  href="http://www.reddit.com/submit?url=http%3a%2f%2fexample.org%2fposts%2fvba%2fdelete%25E7%259A%2584%25E5%259D%2591%2f"
+		<a  href="http://www.reddit.com/submit?url=http%3a%2f%2fexample.org%2fposts%2fuipath%2fsaplayout%25E7%259A%2584%25E5%259D%2591%2f"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on Reddit. Opens in a new window." >
 	        <img src=/img/icons/45px/reddit.png>
 	    </a>
 
-	    <a  href="http://pinterest.com/pin/create/button/?url=http%3a%2f%2fexample.org%2fposts%2fvba%2fdelete%25E7%259A%2584%25E5%259D%2591%2f"
+	    <a  href="http://pinterest.com/pin/create/button/?url=http%3a%2f%2fexample.org%2fposts%2fuipath%2fsaplayout%25E7%259A%2584%25E5%259D%2591%2f"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on Pinterest. Opens in a new window." >
 	        <img src=/img/icons/45px/pinterest.png>
 	    </a>
 
-	    <a  href="http://www.tumblr.com/share/link?url=http%3a%2f%2fexample.org%2fposts%2fvba%2fdelete%25E7%259A%2584%25E5%259D%2591%2f"
+	    <a  href="http://www.tumblr.com/share/link?url=http%3a%2f%2fexample.org%2fposts%2fuipath%2fsaplayout%25E7%259A%2584%25E5%259D%2591%2f"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on Tumblr. Opens in a new window." >
 	        <img src=/img/icons/45px/tumblr.png>
 	    </a>
 
-		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2fexample.org%2fposts%2fvba%2fdelete%25E7%259A%2584%25E5%259D%2591%2f
-			&title=VBA%20Range%20%e7%9a%84delete%e5%92%8cClear%e7%9a%84%e5%9d%91&summary=VBA%20Delete%20%e5%87%bd%e6%95%b0%e4%bd%bf%e7%94%a8%e9%9c%80%e8%b0%a8%e6%85%8e&source=rafed123.github.io"
+		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2fexample.org%2fposts%2fuipath%2fsaplayout%25E7%259A%2584%25E5%259D%2591%2f
+			&title=SAPLayout%e7%9a%84%e5%9d%91&summary=SAP%20Layout%e8%ae%be%e7%bd%ae%e5%8f%af%e8%83%bd%e4%bc%9a%e5%af%bc%e8%87%b4RPA%e4%b8%8a%e7%ba%bf%e5%a4%b1%e8%b4%a5&source=rafed123.github.io"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on LinkedIn. Opens in a new window." >
 	        <img src=/img/icons/45px/linkedin.png>
 	    </a>
 
-	    <a  href="mailto:?subject=VBA%20Range%20%e7%9a%84delete%e5%92%8cClear%e7%9a%84%e5%9d%91&amp;body=Check out this site http%3a%2f%2fexample.org%2fposts%2fvba%2fdelete%25E7%259A%2584%25E5%259D%2591%2f"
+	    <a  href="mailto:?subject=SAPLayout%e7%9a%84%e5%9d%91&amp;body=Check out this site http%3a%2f%2fexample.org%2fposts%2fuipath%2fsaplayout%25E7%259A%2584%25E5%259D%2591%2f"
 	        title="Share via Email. Opens in a new window." >
 	        <img src=/img/icons/45px/mail.png>
 	    </a>

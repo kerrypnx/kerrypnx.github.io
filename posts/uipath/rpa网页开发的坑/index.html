@@ -2,35 +2,37 @@
 <html lang="en-us">
 
 <head><title>
-    VBA Range 的delete和Clear的坑 | 
+    RPA网页开发的坑 | 
     
     kerrypnx</title>
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="VBA Delete 函数使用需谨慎
+<meta name="description" content="网页不像APP稳定，涉及到网页开发的时候，我们需要注意很多地方
     ">
 
 
-<meta property="og:title" content="VBA Range 的delete和Clear的坑" />
-<meta property="og:description" content="VBA Delete 函数使用需谨慎" />
+<meta property="og:title" content="RPA网页开发的坑" />
+<meta property="og:description" content="网页不像APP稳定，涉及到网页开发的时候，我们需要注意很多地方" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://example.org/posts/vba/delete%E7%9A%84%E5%9D%91/" />
-
+<meta property="og:url" content="http://example.org/posts/uipath/rpa%E7%BD%91%E9%A1%B5%E5%BC%80%E5%8F%91%E7%9A%84%E5%9D%91/" />
+<meta property="article:published_time" content="2020-06-15T11:26:51+08:00" />
+<meta property="article:modified_time" content="2020-06-15T11:26:51+08:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="VBA Range 的delete和Clear的坑"/>
-<meta name="twitter:description" content="VBA Delete 函数使用需谨慎"/>
+<meta name="twitter:title" content="RPA网页开发的坑"/>
+<meta name="twitter:description" content="网页不像APP稳定，涉及到网页开发的时候，我们需要注意很多地方"/>
 
-<meta itemprop="name" content="VBA Range 的delete和Clear的坑">
-<meta itemprop="description" content="VBA Delete 函数使用需谨慎">
+<meta itemprop="name" content="RPA网页开发的坑">
+<meta itemprop="description" content="网页不像APP稳定，涉及到网页开发的时候，我们需要注意很多地方">
+<meta itemprop="datePublished" content="2020-06-15T11:26:51&#43;08:00" />
+<meta itemprop="dateModified" content="2020-06-15T11:26:51&#43;08:00" />
+<meta itemprop="wordCount" content="9">
 
-<meta itemprop="wordCount" content="27">
 
 
-
-<meta itemprop="keywords" content="VBA," />
-<link rel="canonical" href="http://example.org/posts/vba/delete%E7%9A%84%E5%9D%91/" />
+<meta itemprop="keywords" content="Uipath," />
+<link rel="canonical" href="http://example.org/posts/uipath/rpa%E7%BD%91%E9%A1%B5%E5%BC%80%E5%8F%91%E7%9A%84%E5%9D%91/" />
 
 <link rel="icon" type="image/png" href="http://example.org/image/favicon.ico">
 
@@ -122,13 +124,13 @@
         <div id="page-body" class="column is-7">
 
 <div class="content blog">
-    <h1>VBA Range 的delete和Clear的坑</h1>
+    <h1>RPA网页开发的坑</h1>
 
     <div id="infobar" class="level is-mobile">
         <div class="level-left">
             
             <div class="level-item">
-                <p class="subtitle info date">Jan 1, 0001
+                <p class="subtitle info date">Jun 15, 2020
                 </p>
             </div>
             
@@ -142,7 +144,7 @@
         <div class="level-right is-hidden-touch">
             <div class="tags">
                 
-                <a class="tag is-dark is-rounded" href="/tags/vba">VBA</a>
+                <a class="tag is-dark is-rounded" href="/tags/uipath">Uipath</a>
                 
             </div>
         </div>
@@ -150,24 +152,22 @@
 
     <div class="tags is-hidden-desktop">
         
-        <a class="tag is-dark is-rounded" href="/tags/vba">V b a</a>
+        <a class="tag is-dark is-rounded" href="/tags/uipath">Uipath</a>
         
     </div>
 
     <div class="blog-text">
         
 
-        <h2 id="背景">背景</h2>
-<p>今天遇到一个需求，将表下载下来贴到另一个模板里，因为模板里已经存在公式了，我就直接贴进去就可以了，为了避免模板里原有数据可能会干扰，我直接用 <code>ActiveSheet.Range(&quot;Rownum:rowNUm&quot;).EntireRow.Delete</code> 删除。 本以为很简单，可是测试的时候，直接反馈 BUG，说公式变动了。我当时就纳闷了，我没动公式啊。</p>
-<h2 id="解决办法">解决办法</h2>
-<p>经过我一步一步调试，发现，原来是 delete function 导致的。 如下图，</p>
-<p><img src="/images/VBA/2020-06-01/vbaBug-1.png" alt=""></p>
-<p>A1 存在公式为 D3 到 D100 的和，这个时候如果直接用 delete，</p>
-<p><img src="/images/VBA/2020-06-01/vbaBug-2.png" alt=""></p>
-<p>这个时候，A1 直接报错，这样会导致公式变化，而使用<code>Clear function</code>的时候，则，A1 并不会变成乱码，公式依然存在，只是值为 0
-<img src="/images/VBA/2020-06-01/vbaBug-3.png" alt=""></p>
-<h2 id="结论">结论</h2>
-<p><code>delete function</code>有时候会影响到其他的函数，使用时候应该谨慎小心</p>
+        <h1 id="点击事件的坑">点击事件的坑</h1>
+<p>点击一个按钮，这应该是RPA里面最基本，最简单得功能得，可是这个最简单得功能，其实有很多坑，如果不注意得话，上线后以后，别人可能会一直找你修BUG，基本上我目前开发过的项目，只要是涉及到网页的，点击过了以后，都会遇到可能会不响应的情况，就是想要的页面不出来，好的网站是这样，更别说一些老的网站，比如什么网银的，那分分钟坑死你。
+<em>解决办法</em>：</p>
+<ol>
+<li>重视<strong>点击事件</strong>，将每一个点击事件都应该封装成一个单独的流程。</li>
+<li>每一个点击事件后面，都应该跟上对点击过以后，页面元素存在性得判断。</li>
+<li>加入异常控制，最好是用 <code>whlie</code> 循环，如果检测不到，去进行重新点击。还要设计最多的检测次数，有时候就是系统挂掉了，一直检测，别死循环了，这个时候应该直接退出，重新登录。</li>
+</ol>
+<p>有人说，卧槽，就点个按钮，搞这么费事。我只能说，开发一时爽，维护火葬场。。。RPA目前就是这样，看着简单，其实真要做出一套能稳定运行的程序，是很费事的。至少以目前的情况来看是这样。</p>
 
     </div>
 </div><div id="social-media-share" class="has-text-centered">
@@ -175,44 +175,44 @@
 	<br>
 	
 	<div class="share-buttons">
-	    <a  href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fexample.org%2fposts%2fvba%2fdelete%25E7%259A%2584%25E5%259D%2591%2f"
+	    <a  href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fexample.org%2fposts%2fuipath%2frpa%25E7%25BD%2591%25E9%25A1%25B5%25E5%25BC%2580%25E5%258F%2591%25E7%259A%2584%25E5%259D%2591%2f"
 	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
 	        title="Share on Facebook. Opens in a new window.">
 	        <img src=/img/icons/45px/facebook.png>
 	    </a>
 
-	    <a  href="https://twitter.com/intent/tweet?text=VBA%20Range%20%e7%9a%84delete%e5%92%8cClear%e7%9a%84%e5%9d%91&url=http%3a%2f%2fexample.org%2fposts%2fvba%2fdelete%25E7%259A%2584%25E5%259D%2591%2f"
+	    <a  href="https://twitter.com/intent/tweet?text=RPA%e7%bd%91%e9%a1%b5%e5%bc%80%e5%8f%91%e7%9a%84%e5%9d%91&url=http%3a%2f%2fexample.org%2fposts%2fuipath%2frpa%25E7%25BD%2591%25E9%25A1%25B5%25E5%25BC%2580%25E5%258F%2591%25E7%259A%2584%25E5%259D%2591%2f"
 	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
 	        title="Share on Twitter. Opens in a new window." >
 	        <img src=/img/icons/45px/twitter.png>
 	    </a>
 
-		<a  href="http://www.reddit.com/submit?url=http%3a%2f%2fexample.org%2fposts%2fvba%2fdelete%25E7%259A%2584%25E5%259D%2591%2f"
+		<a  href="http://www.reddit.com/submit?url=http%3a%2f%2fexample.org%2fposts%2fuipath%2frpa%25E7%25BD%2591%25E9%25A1%25B5%25E5%25BC%2580%25E5%258F%2591%25E7%259A%2584%25E5%259D%2591%2f"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on Reddit. Opens in a new window." >
 	        <img src=/img/icons/45px/reddit.png>
 	    </a>
 
-	    <a  href="http://pinterest.com/pin/create/button/?url=http%3a%2f%2fexample.org%2fposts%2fvba%2fdelete%25E7%259A%2584%25E5%259D%2591%2f"
+	    <a  href="http://pinterest.com/pin/create/button/?url=http%3a%2f%2fexample.org%2fposts%2fuipath%2frpa%25E7%25BD%2591%25E9%25A1%25B5%25E5%25BC%2580%25E5%258F%2591%25E7%259A%2584%25E5%259D%2591%2f"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on Pinterest. Opens in a new window." >
 	        <img src=/img/icons/45px/pinterest.png>
 	    </a>
 
-	    <a  href="http://www.tumblr.com/share/link?url=http%3a%2f%2fexample.org%2fposts%2fvba%2fdelete%25E7%259A%2584%25E5%259D%2591%2f"
+	    <a  href="http://www.tumblr.com/share/link?url=http%3a%2f%2fexample.org%2fposts%2fuipath%2frpa%25E7%25BD%2591%25E9%25A1%25B5%25E5%25BC%2580%25E5%258F%2591%25E7%259A%2584%25E5%259D%2591%2f"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on Tumblr. Opens in a new window." >
 	        <img src=/img/icons/45px/tumblr.png>
 	    </a>
 
-		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2fexample.org%2fposts%2fvba%2fdelete%25E7%259A%2584%25E5%259D%2591%2f
-			&title=VBA%20Range%20%e7%9a%84delete%e5%92%8cClear%e7%9a%84%e5%9d%91&summary=VBA%20Delete%20%e5%87%bd%e6%95%b0%e4%bd%bf%e7%94%a8%e9%9c%80%e8%b0%a8%e6%85%8e&source=rafed123.github.io"
+		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2fexample.org%2fposts%2fuipath%2frpa%25E7%25BD%2591%25E9%25A1%25B5%25E5%25BC%2580%25E5%258F%2591%25E7%259A%2584%25E5%259D%2591%2f
+			&title=RPA%e7%bd%91%e9%a1%b5%e5%bc%80%e5%8f%91%e7%9a%84%e5%9d%91&summary=%e7%bd%91%e9%a1%b5%e4%b8%8d%e5%83%8fAPP%e7%a8%b3%e5%ae%9a%ef%bc%8c%e6%b6%89%e5%8f%8a%e5%88%b0%e7%bd%91%e9%a1%b5%e5%bc%80%e5%8f%91%e7%9a%84%e6%97%b6%e5%80%99%ef%bc%8c%e6%88%91%e4%bb%ac%e9%9c%80%e8%a6%81%e6%b3%a8%e6%84%8f%e5%be%88%e5%a4%9a%e5%9c%b0%e6%96%b9&source=rafed123.github.io"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on LinkedIn. Opens in a new window." >
 	        <img src=/img/icons/45px/linkedin.png>
 	    </a>
 
-	    <a  href="mailto:?subject=VBA%20Range%20%e7%9a%84delete%e5%92%8cClear%e7%9a%84%e5%9d%91&amp;body=Check out this site http%3a%2f%2fexample.org%2fposts%2fvba%2fdelete%25E7%259A%2584%25E5%259D%2591%2f"
+	    <a  href="mailto:?subject=RPA%e7%bd%91%e9%a1%b5%e5%bc%80%e5%8f%91%e7%9a%84%e5%9d%91&amp;body=Check out this site http%3a%2f%2fexample.org%2fposts%2fuipath%2frpa%25E7%25BD%2591%25E9%25A1%25B5%25E5%25BC%2580%25E5%258F%2591%25E7%259A%2584%25E5%259D%2591%2f"
 	        title="Share via Email. Opens in a new window." >
 	        <img src=/img/icons/45px/mail.png>
 	    </a>
